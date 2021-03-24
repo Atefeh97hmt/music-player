@@ -1,0 +1,307 @@
+body {
+    // background: #e1e7ec;
+    background: #dfe7ef;
+    font-family: "tahoma", ;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }
+  
+  .wrapper {
+    min-height: 80vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    // background: url(../img/bg.png) no-repeat center;
+    background-size: cover;
+   
+  }
+  
+  .player {
+    background: #183c58;
+    width: 100%;
+    max-width: 700px;
+    min-height: 100px;
+    // box-shadow: 0px 55px 75px -10px rgba(76, 70, 124, 0.5);
+    // box-shadow: 0px 55px 105px 10px rgba(76, 70, 124, 0.35);
+    box-shadow: 0px 15px 35px 1px rgba(48, 70, 102, 0.32);
+    border-radius: 16px;
+    padding: 30px;
+    
+    &__top {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      z-index: 4;
+     
+    }
+  
+   
+  
+    &-controls {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+  justify-content: center;
+      
+  
+      &__item {
+        display: inline-flex;
+        font-size: 32px;
+        padding: 10px;
+        margin-bottom: 10px;
+        color: #ffffff;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+  
+        
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: #fff;
+          transform: scale(0.5);
+          opacity: 0;
+          box-shadow: 0px 5px 10px 0px rgba(19, 153, 206, 0.2);
+          transition: all 0.3s ease-in-out;
+          transition: all 0.4s cubic-bezier(0.35, 0.57, 0.13, 0.88);
+        }
+  
+        @media screen and (min-width: 500px) {
+          &:hover {
+            color: #a1ddff;
+  
+          }
+        }
+  
+       
+  
+        .icon {
+          position: relative;
+          z-index: 2;
+        }
+  
+        &.-xl {
+          margin-bottom: 0;
+          font-size: 60px;
+          // filter: drop-shadow(0 2px 8px rgba(172, 184, 204, 0.3));
+          // filter: drop-shadow(0 9px 6px rgba(172, 184, 204, 0.35));
+          filter: drop-shadow(0 11px 6px rgba(172, 184, 204, 0.45));
+          color: #fff;
+          width: auto;
+          height: auto;
+          display: inline-flex;
+          
+          &:before {
+            display: none;
+          }
+        }
+  
+        &.-favorite {
+          &.active {
+            color: #ff344f;
+          }
+        }
+      }
+    }
+  }
+  [v-cloak] {
+    display: none;
+  }
+  [v-cloak] > * {
+    display: none;
+  }
+  .progress {
+    width: 100%;
+    margin-top: -15px;
+    user-select: none;
+    &__top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  
+    &__duration {
+      color:#ffffff;;
+      font-weight: 700;
+      font-size: 20px;
+      opacity: 0.5;
+    }
+    &__time {
+      margin-top: 2px;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 16px;
+      opacity: 0.7;
+    }
+  }
+  .progress__bar {
+    height: 6px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #d6e5ff;
+    display: inline-block;
+    border-radius: 10px;
+  }
+  .progress__current {
+    height: inherit;
+    width: 0%;
+    background-color: #ff67e6;
+    border-radius: 10px;
+  }
+  
+  .album-info {
+    color: #ffffff;
+    flex: 1;
+    padding-right: 60px;
+    user-select: none;
+  
+    @media screen and (max-width: 576px), (max-height: 500px)  {
+      padding-right: 30px;
+    }
+  
+    &__name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      line-height: 1.3em;
+      @media screen and (max-width: 576px), (max-height: 500px) {
+        font-size: 18px;
+        margin-bottom: 9px;
+      }
+    }
+    &__track {
+      font-weight: 400;
+      font-size: 20px;
+      opacity: 0.7;
+      line-height: 1.3em;
+      min-height: 52px;
+      @media screen and (max-width: 576px), (max-height: 500px)  {
+        font-size: 18px;
+        min-height: 50px;
+      }
+    }
+  }
+  
+
+  
+  //scale out
+  
+  .scale-out-enter-active {
+    transition: all .35s ease-in-out;
+  }
+  .scale-out-leave-active {
+    transition: all .35s ease-in-out;
+  }
+  .scale-out-enter {
+    transform: scale(.55);
+    pointer-events: none;
+    opacity: 0;
+  }
+  .scale-out-leave-to {
+    transform: scale(1.2);
+    pointer-events: none;
+    opacity: 0;
+  }
+  
+  
+  //scale in
+  
+  .scale-in-enter-active {
+    transition: all .35s ease-in-out;
+  }
+  .scale-in-leave-active {
+    transition: all .35s ease-in-out;
+  }
+  .scale-in-enter {
+    transform: scale(1.2);
+    pointer-events: none;
+    opacity: 0;
+  }
+  .scale-in-leave-to {
+    transform: scale(.55);
+    pointer-events: none;
+    opacity: 0;
+  }
+  
+
+
+  .container{  
+    position:relative;
+ 
+  
+  span{  
+    width:5px;  
+    height: 5px;  
+    bottom:0px;
+    position:absolute;  
+    background:rgb(169, 238, 255);  
+    -webkit-animation: bodong 0.5s infinite  ease;  
+  }  
+  
+ span:first-child{  
+    left:0px;  
+    -webkit-animation-delay:.3s;  
+  }  
+  
+ span:nth-child(2){  
+    left:7px;  
+    -webkit-animation-delay:.4s;  
+  
+  }  
+ span:nth-child(3){  
+    left:14px;  
+    -webkit-animation-delay:.6s;  
+  }  
+ span:nth-child(4){  
+    left:21px;  
+    -webkit-animation-delay:.8s;  
+  }  
+ span:nth-child(5){  
+    left:28px;  
+    -webkit-animation-delay:1s;  
+  }  
+  
+  @-webkit-keyframes bodong{  
+    0%{height:5px; background:bule;}  
+    30%{height:15px; background:bule;}  
+    60%{height:20px; background:bule;}  
+    80%{height:15px; background:bule;}  
+    100%{height:5px; background:bule;}  
+  } 
+ } 
+
+
+ canvas {
+	display        : block;
+}
+#particles-js {
+  position: fixed;
+  /* fill the entire page */
+  width: 100%;
+  height: 100%;
+  /* remove the space along the edges */ 
+  margin: 0;
+  padding: 0;
+  /* position it to start at the top of the page */
+  top: 0;
+  /* put it behind other content */
+  z-index: -1;
+}
